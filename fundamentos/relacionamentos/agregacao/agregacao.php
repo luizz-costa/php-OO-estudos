@@ -4,7 +4,7 @@
  * Agregacao é um tipo de Relacionamento ou Associacao na orientação a objetos  
  * Os objetos estao relacionados e tambem e conhecido com um tipo de relacionamento conhecido como Todo-Parte
  * Todo-Parte porque existe uma parte que e mais forte que a outra nesse relacionamento uma claase é o TODO e outra as PARTES
- * Nesse exemplo a seguir temos a Cesta de compras e os produtos que fazem parte da cesta de compras
+ * Nesse exemplo a seguir temos a Cesta de compras e os Produtos que fazem parte da cesta de compras
  * os objetos aqui estao relacionados, existe uma associacao entre eles
  * 
  * Mas por que chamamos essa assosiacao de Agregacao? 
@@ -33,6 +33,34 @@
  *  Na Agregacao é normal termos uma tabela para Cesta de compras uma tabela para Produto e uma tabela no meio para relacionar 
  *  Cesta e Produto uma relacao de N para N
  *  Nesse caso quando apagamos um registro de uma Cesta devemos apagar na tabela de Cestas e na  tabela intermediaria mas nao na 
- *  tabela de Produtos, entao em termo de Banco de dados teremos 3 tabelas: Cesta, Prodtuo e Item da Cesta  
+ *  tabela de Produtos, 
+ *  entao em termo de Banco de dados teremos 3 tabelas: Cesta, Prodtuo e Item da Cesta  
  */
 
+// classTodo == Objeto Cesta 
+require_once 'classTodo.php';
+// classPartes == Objeto Produto
+require_once 'classPartes.php';
+
+$c1 = new Cesta;
+
+
+$p1 = new Produto('chocolate', 10, 5);
+$p2 = new Produto('cafe', 15, 20);
+$p3 = new Produto('mostarda', 10, 8);
+
+// Adicionando Objeto Produto dentro do Objeto Cesta
+$c1->addItem( $p1 );
+$c1->addItem( $p2 );
+$c1->addItem( $p3 );
+
+// Printando na tela (Debugando)
+echo '<pre>';
+var_dump($c1);
+echo '</pre>';
+
+// Outra forma de printar os itens na tela é:
+foreach($c1->getItens() as $item)
+{
+    echo "Item: {$item->getDescricao()} ";
+}

@@ -36,4 +36,9 @@ class Conta
     {
         return $this->saldo;
     }
+    //Criando um Metodo para exbir informacoes da Conta
+    public function getInfo()
+    {
+        return "Agencia {$this->agencia}</br> Conta {$this->conta}";
+    }
 }

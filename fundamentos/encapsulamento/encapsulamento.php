@@ -25,7 +25,13 @@
  * 
  * //Acesso Public: mais simples, e menos seguro é o acesso 
  * 
- * //Acesso Private: mais seguro, e nao pode acessar/gravar atributos privados por fora da classe 
+ * //Acesso Private: mais seguro, mas somente pode acessar/gravar atributos privados por dentro da propria classe,
+ *                   nao indicado em casos de heranca devido nao ser possivel acessar atributos privados da Classe Pai, 
+ *                   por meio de Classes Filhas 
+ * 
+ *  //Acesso Protected: seguro como se fosse um Private, nao conseguindo acessar de fora da classe, mas Classes Filhas podem 
+ *                      acessar, entao é possivel acessar atributos declarados herdados da Classe Pai 
+ *                      entao sempre que criar uma classe Pai com Atributos que queremos acessar na Classe Filha usamos Protected
  *  
  * 
  */

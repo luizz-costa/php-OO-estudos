@@ -1,0 +1,35 @@
+<?php
+
+class Pessoa
+{
+    //Definindo Atributo como Protected(somente assim ele pode ser acessado em classes Filhas)
+    protected $nome;
+
+    public function __construct($nome)
+    {
+        $this->nome = $nome;
+    }
+}
+
+class Funcionario extends Pessoa
+{
+    private $cargo, $salario;
+
+    public function contrata($cargo, $salario)
+    {
+        if (is_numeric($salario) and $salario > 0)
+        {
+            $this->cargo = $cargo;
+            $this->salario = $salario; 
+        }
+    }
+
+    public function getInfo()
+    {
+        return "Nome: {$this->nome}, Salario: {$this->salario}";
+    }
+}
+
+$p1 = new Funcionario('Maria da Paz');
+$p1->contrata('Auxiliar', 1600);
+print $p1->getInfo();

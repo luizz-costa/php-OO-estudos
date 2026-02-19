@@ -14,7 +14,7 @@
  *  os Metodos estao dentro do escopo da Classe
  *  
  *  E dentro desse Metodo Public que criamos para receber valores vindo de fora da classe, podemos
- *  adicionar validacoes, regras para permitir ou nao atribuir aquele valor ou nao dentro do atributo do obj
+ *  adicionar validacoes ou regras para permitir ou nao atribuir aquele valor ou nao dentro do atributo do obj
  * 
  * 
  */
@@ -24,16 +24,40 @@ class Pessoa
     private $endereco;
     private $nascimento;
 
-    //Metodo que vai receber a data de nascimento de fora da classe e vai gravar aqui dentro
+    //Criando Metdo Construtor
+    public function __construct($nome, $endereco)
+    {
+        $this->nome = $nome;
+        $this->endereco = $endereco;
+    }
+
+    //Metodo que vai receber a data de nascimento de fora da classe e vai gravar aqui dentro, podendo fazer validacoes.
     public function setNascimento($nascimento)
     {
-        //Gravando dado passados de fora da classe nos Atributos privados
-        $this->nascimento = $nascimento;
+        //Validando os dados recebidos da data de nascimento
+        $partes = explode('-', $nascimento);
+        if (count($partes) == 3)
+        {
+            if (checkdate( $partes[1], $partes[2], $partes[0]))
+            {
+                //Gravando dados apos validacoes no Atributos Privado
+                $this->nascimento = $nascimento;
+                return true;
+            }
+            return false;
+        }
+        return false;
     }
 }
 
-//Criando Objeto
-$p1 = new Pessoa;
+//instanciando o Objeto com Metodo construtor Publico que ira ja salvar nome e endereco nos atributos do Objeto
+$p1 = new Pessoa('Maria da Silva', 'Rua Dr Mallard');
 
-//Acessando um Metodo publico e passando dados para serem gravados nos Atributos Privados
-$p1->setNascimento(1990);
+//Acessando um Metodo publico e passando dados(data) com tipo errado, que nas validacoes do metodo ira retornar == false
+$ok1 = $p1->setNascimento('01 de maio de 2000');
+//Acessando um Metodo publico e passando dados(data) com tipo certo, ano/mes/dia, que ira retornar == true e salvar dentro do objeto
+$ok2 = $p1->setNascimento('1990-02-14');
+
+var_dump($ok1);
+var_dump($ok2);
+var_dump($p1);

@@ -1,0 +1,39 @@
+ * Acoplamento
+ * - Mede quanto um modulo (classe, metodo, componente) conhece e depende do outro;
+ * - O objetivo é criar modelos com baixo acoplamento;
+ * - Alto acoplamento diminui a reusabilidade porque objetos não podem ser usados sozinhos;
+ * - Não existe zero acoplamento, as partes precisam conversar.
+ * 
+ * O acoplamento ele diz o quanto duas partes estao muito conectadas ou muito acopladas
+ * entao acoplamento em POO é uma maneira de medir o quanto uma classe/componente de software depende de outras classes para funcionar
+ * 
+ * ----------------------------------------------------------------------------------
+ * 
+ * As interfaces sao uma forma de resolver o problema do Acoplamento 
+ * As interfaces tem a asinatura de um Metodo que ira ser fornecido pelas Classes, não possui corpo, quem oferece implementação 
+ * são as Classes e nao a interface 
+ * 
+ * Interfaces
+ * - É um tipo abstrato de dados
+ * - É uma lista de Metodos
+ * - Conjunto de métodos que definem um serviço prestado;
+ * - Representa uma fronteira definida em uma comunicação
+ * - É como um contrato de prestação de serviços entre duas classes
+ * - Uma classe fornece. Para ela, a interface é realizada
+ * - Uma classe consome. Para ela, a interface é utilizada
+ * - O uso de interfaces permitem uma melhor "substituição" de partes.
+ * 
+ * A vantagem de utilizarmos Interfaces no desenvolvimento orientado a objetos é que ela define uma
+ * uma comunicação explicita entre as Classes e facilita a substituicao de partes, facilita o entedimento e compreensao do sistema
+ * e facilita que a gente possa remover uma classe fora e colocar outra no lugar e o sistema continuar funcionando 
+ * 
+ * Conceito de Interface
+ * - A Interface é uma lista de Metodos
+ *      basicamente ela diz o seguinte; Eu vou ter uma lista de Metodos [ o Metodo A, o Metodo B e o Metodo C ] 
+ *                                      dai uma Classe pode assinar esse contrato dizendo;'olha, eu tenho esses Metodos, eu ofereco eles
+ *                                      o Metodo A, Metodo B e Metodo C, eu tenho!' entao eu sou compativel com essa "regra", essa "norma", 
+ *                                      esse "contrato" ou essa "comunicacao".
+ *                                      por outro lado eu posso ter uma Classe que diz; "Olha, eu preciso disso daqui para funcionar (Metodo A,
+ *                                      Metodo B e Metodo C) para fazer meu trabalho" 
+ *     Entao basicamente a gente tem de um lado uma Classe que oferece o servico e outra Classe que vai dizer que precisa desse servico.
+
